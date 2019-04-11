@@ -1,0 +1,35 @@
+submodule_non_abi_incap {
+  tasks = [":mobile:assembleDebug"]
+  gradle-args=["-Pkapt.incremental.apt=true"]
+  apply-non-abi-change-to="shared/src/main/java/com/google/samples/apps/iosched/shared/domain/agenda/LoadAgendaUseCase.kt"
+}
+
+submodule_non_abi {
+  tasks = [":mobile:assembleDebug"]
+  gradle-args=["-Pkapt.incremental.apt=false"]
+  apply-non-abi-change-to="shared/src/main/java/com/google/samples/apps/iosched/shared/domain/agenda/LoadAgendaUseCase.kt"
+}
+
+submodule_abi_incap {
+  tasks = [":mobile:assembleDebug"]
+  gradle-args=["-Pkapt.incremental.apt=true"]
+  apply-abi-change-to="shared/src/main/java/com/google/samples/apps/iosched/shared/domain/agenda/LoadAgendaUseCase.kt"
+}
+
+submodule_abi {
+  tasks = [":mobile:assembleDebug"]
+  gradle-args=["-Pkapt.incremental.apt=false"]
+  apply-abi-change-to="mobile/src/main/java/com/google/samples/apps/iosched/ui/info/EventFragment.kt"
+}
+
+app_non_abi_incap {
+  tasks = [":mobile:assembleDebug"]
+  gradle-args=["-Pkapt.incremental.apt=true"]
+  apply-non-abi-change-to="mobile/src/main/java/com/google/samples/apps/iosched/ui/info/EventFragment.kt"
+}
+
+app_non_abi {
+  tasks = [":mobile:assembleDebug"]
+  gradle-args=["-Pkapt.incremental.apt=false"]
+  apply-non-abi-change-to="mobile/src/main/java/com/google/samples/apps/iosched/ui/info/EventFragment.kt"
+}
